@@ -11,9 +11,9 @@ async function startServers(configDirs) {
   let all = configDirs.length === 3 ? true : false;
   for (let i = 0; i < configDirs.length; i++) {
     let process = spawn('node', [app, configDirs[i]]);
-    await utils.wait(3000);
     servers.push(path.basename(configDirs[i]));
     processes.push(process);
+    await utils.wait(1000);
   }
   isSplitterServerTriggered = verifyServersInProcess(all);
 }
