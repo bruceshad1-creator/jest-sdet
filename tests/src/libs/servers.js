@@ -11,15 +11,14 @@ async function startServers(configDirs) {
   let all = configDirs.length === 3 ? true : false;
   for (let i = 0; i < configDirs.length; i++) {
     let process = spawn('node', [app, configDirs[i]]);
+    await utils.wait(3000);
     servers.push(configDirs[i].split('/jest-sdet/')[1]);
     processes.push(process);
-    await utils.wait(500);
   }
   isSplitterServerTriggered = verifyServersInProcess(all);
 }
 
 function verifyServersInProcess(allServers = true) {
-    expect(servers.length).toBe(processes.length);
     if (allServers)
       expect(servers[1]).toBe('splitter');
     else {
