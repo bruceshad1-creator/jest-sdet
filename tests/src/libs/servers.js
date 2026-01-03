@@ -12,7 +12,7 @@ async function startServers(configDirs) {
   for (let i = 0; i < configDirs.length; i++) {
     let process = spawn('node', [app, configDirs[i]]);
     await utils.wait(3000);
-    servers.push(configDirs[i].split('/jest-sdet/')[1]);
+    servers.push(path.basename(configDirs[i]));
     processes.push(process);
   }
   isSplitterServerTriggered = verifyServersInProcess(all);
