@@ -1,0 +1,13 @@
+# Node modules
+node_modules/
+
+# Logs & test reports
+events.logs
+reports/
+test-results/
+
+# OS files
+.DS_Store
+
+# IDE / Editor
+.idea/
